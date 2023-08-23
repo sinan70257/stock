@@ -22,7 +22,7 @@ Container stockList(StockListResult stocklist) {
                 textAlign: TextAlign.left,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
@@ -32,7 +32,7 @@ Container stockList(StockListResult stocklist) {
                 textAlign: TextAlign.left,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                     height: 1.3,
                     color: Color.fromARGB(255, 209, 209, 209),
                     fontSize: 15),
@@ -43,7 +43,7 @@ Container stockList(StockListResult stocklist) {
         SizedBox(
             width: 80,
             child: Text(stocklist.matchscore!,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
                     fontSize: 16))),

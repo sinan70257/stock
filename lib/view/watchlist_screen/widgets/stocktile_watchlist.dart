@@ -21,7 +21,7 @@ Container stockListTile(stocklist, fetchData) {
                 textAlign: TextAlign.left,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
@@ -31,7 +31,7 @@ Container stockListTile(stocklist, fetchData) {
                 textAlign: TextAlign.left,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Color.fromARGB(255, 209, 209, 209), fontSize: 15),
               ),
             ],
@@ -40,7 +40,7 @@ Container stockListTile(stocklist, fetchData) {
         SizedBox(
             width: 80,
             child: Text(stocklist['matchscore'],
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
                 ))),

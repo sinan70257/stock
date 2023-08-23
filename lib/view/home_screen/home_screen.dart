@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:stocks/api/fetch_data.dart';
-import 'package:stocks/db%20%20functions/db_function.dart';
 import 'package:stocks/model/stock/best_match.dart';
 import 'package:stocks/view/home_screen/widgets/searchbar.dart';
 import 'package:stocks/view/home_screen/widgets/stock_list.dart';

@@ -44,7 +44,7 @@ class _watchListState extends State<watchList> {
               },
             );
           } else {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
         },
       ),

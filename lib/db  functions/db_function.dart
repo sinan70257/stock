@@ -15,9 +15,9 @@ Future<void> initDatabase() async {
 }
 
 Future<List<Map<String, dynamic>>> getStocksData() async {
-  final _values = await _db.rawQuery("SELECT * FROM stock");
-  log(_values.toString());
-  return _values;
+  final values = await _db.rawQuery("SELECT * FROM stock");
+  log(values.toString());
+  return values;
 }
 
 Future<void> addStocksData(

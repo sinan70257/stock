@@ -3,6 +3,8 @@ import 'package:stocks/view/home_screen/home_screen.dart';
 import 'package:stocks/view/watchlist_screen/watchlist_screen.dart';
 
 class BottomNavScreen extends StatefulWidget {
+  const BottomNavScreen({super.key});
+
   @override
   _BottomNavScreenState createState() => _BottomNavScreenState();
 }
@@ -24,7 +26,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       backgroundColor: Colors.black,
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedIconTheme: IconThemeData(size: 30),
+        selectedIconTheme: const IconThemeData(size: 30),
         unselectedItemColor: Colors.grey,
         backgroundColor: Colors.black,
         currentIndex: _currentIndex,

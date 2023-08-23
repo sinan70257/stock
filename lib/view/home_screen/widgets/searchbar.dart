@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Container customSearchbar(void serach(String value)) {
+Container customSearchbar(void Function(String value) serach) {
   return Container(
     margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
     padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -10,17 +10,17 @@ Container customSearchbar(void serach(String value)) {
     ),
     child: Row(
       children: [
-        Icon(
+        const Icon(
           Icons.search,
           color: Colors.grey,
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Expanded(
           child: TextField(
             onChanged: (value) => serach(value),
-            style: TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              hintStyle: const TextStyle(color: Colors.grey),
+            style: const TextStyle(color: Colors.white),
+            decoration: const InputDecoration(
+              hintStyle: TextStyle(color: Colors.grey),
               hintText: "Search stock",
               border: InputBorder.none,
             ),

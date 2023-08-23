@@ -10,7 +10,7 @@ class FetchStockApi {
   int k = 0;
   Future<List<StockListResult>> searchStock(String keywords) async {
     k++;
-    log("apicalled " + k.toString());
+    log("apicalled $k");
     // final response = await http.get(Uri.parse(
     //     "$baseUrl/query?function=SYMBOL_SEARCH&keywords=$keywords&apikey=$apiKey"));
     final response = await http.get(Uri.parse(

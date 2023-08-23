@@ -18,7 +18,7 @@ class myApp extends StatefulWidget {
 class _myAppState extends State<myApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: BottomNavScreen(),
     );
