@@ -10,6 +10,7 @@ class WatchList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    controller.fetchData();
     return Scaffold(
       appBar: appBar(),
       backgroundColor: Colors.black,
@@ -67,7 +68,7 @@ class WatchList extends StatelessWidget {
               itemCount: controller.stocksData.length,
               itemBuilder: (context, index) {
                 final stock = controller.stocksData[index];
-                return stockListTile(stock, controller.fetchData);
+                return stockListTile(stock, controller.fetchData, context);
               },
             ),
           ],

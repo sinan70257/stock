@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:stocks/model/stock/best_match.dart';
+import 'package:stocks/model/stock_details/stock_detail.dart';
 
 class FetchStockApi {
   static const String apiKey = 'D6NS6GHT165QI8SU';
@@ -27,6 +28,23 @@ class FetchStockApi {
       }
     } else {
       throw Exception("Failed to load data");
+    }
+  }
+
+  Future<StockDetails> fetchStockDetails(String symbol) async {
+    // final apiUrl =
+    //     'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=$symbol&apikey=$apiKey';
+
+    // final response = await http.get(Uri.parse(apiUrl));
+    final response = await http.get(Uri.parse(
+        "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo"));
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data = json.decode(response.body);
+      final quoteData = data['Global Quote'];
+      return StockDetails.fromJson(quoteData);
+    } else {
+      throw Exception('Failed to fetch data');
     }
   }
 }

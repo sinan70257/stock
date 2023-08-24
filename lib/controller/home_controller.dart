@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:stocks/api/fetch_data.dart';
+import 'package:stocks/services/fetch_data.dart';
 import 'package:stocks/model/stock/best_match.dart';
 
 class homeComntroller extends GetxController {
