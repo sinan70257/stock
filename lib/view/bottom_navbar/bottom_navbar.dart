@@ -1,45 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:stocks/view/home_screen/home_screen.dart';
-import 'package:stocks/view/watchlist_screen/watchlist_screen.dart';
+import 'package:get/get.dart';
+import 'package:stocks/controller/bottomnav_controller.dart';
 
-class BottomNavScreen extends StatefulWidget {
-  const BottomNavScreen({super.key});
+class BottomNavScreen extends StatelessWidget {
+  BottomNavScreen({super.key});
 
-  @override
-  _BottomNavScreenState createState() => _BottomNavScreenState();
-}
-
-class _BottomNavScreenState extends State<BottomNavScreen> {
-  int _currentIndex = 0;
-  final List<Widget> _screens = [const homeScreen(), const watchList()];
+  final BottomnavController controller = Get.put(BottomnavController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Image.asset(
-          "assets/trade brains.jpg",
-          height: 25,
-        ),
-      ),
       backgroundColor: Colors.black,
-      body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedIconTheme: const IconThemeData(size: 30),
-        unselectedItemColor: Colors.grey,
-        backgroundColor: Colors.black,
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Homw'),
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Watchlist'),
-        ],
-      ),
+      body: Obx(() => controller.currentScreen),
+      bottomNavigationBar: Obx(() => BottomNavigationBar(
+            selectedIconTheme: const IconThemeData(size: 30),
+            unselectedItemColor: Colors.grey,
+            backgroundColor: Colors.black,
+            currentIndex: controller.currentIndex.value,
+            onTap: (index) {
+              controller.changePage(index);
+            },
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Homw'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.list), label: 'Watchlist'),
+            ],
+          )),
     );
   }
 }

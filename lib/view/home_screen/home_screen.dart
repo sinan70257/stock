@@ -1,48 +1,42 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:stocks/api/fetch_data.dart';
-import 'package:stocks/model/stock/best_match.dart';
+import 'package:get/get.dart';
+import 'package:stocks/controller/home_controller.dart';
 import 'package:stocks/view/home_screen/widgets/searchbar.dart';
 import 'package:stocks/view/home_screen/widgets/stock_list.dart';
 
-class homeScreen extends StatefulWidget {
-  const homeScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
 
-  @override
-  State<homeScreen> createState() => _homeScreenState();
-}
-
-TextEditingController searchController = TextEditingController();
-
-class _homeScreenState extends State<homeScreen> {
-  List<StockListResult> stocklist = [];
-  final FetchStockApi stockApi = FetchStockApi();
-  void searchstock(String keywords) async {
-    final results = await stockApi.searchStock(keywords);
-    setState(() {
-      stocklist = results;
-    });
-  }
+  final homeComntroller controller = Get.put(homeComntroller());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.black,
+          title: Image.asset(
+            "assets/trade brains.jpg",
+            height: 25,
+          ),
+        ),
         backgroundColor: Colors.black,
         body: Column(
           children: [
-            customSearchbar(searchstock),
+            customSearchbar(controller.searchStock),
             Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  log(stocklist.length.toString());
-                  return stockList(stocklist[index]);
-                },
-                itemCount: stocklist.length,
-              ),
-            ),
+                child: Obx(() => controller.stockList.isNotEmpty
+                    ? ListView.builder(
+                        shrinkWrap: true,
+                        physics: const BouncingScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return stockList(controller.stockList[index]);
+                        },
+                        itemCount: controller.stockList.length,
+                      )
+                    : const Center(
+                        child: Text("No data found"),
+                      ))),
           ],
         ));
   }

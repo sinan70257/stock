@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:stocks/controller/watchlist_controller.dart';
 import 'package:stocks/db%20%20functions/db_function.dart';
 import 'package:stocks/model/stock/best_match.dart';
 
 Container stockList(StockListResult stocklist) {
+  final watchListController controller = Get.put(watchListController());
   return Container(
     height: 65,
     margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 0.5),
@@ -51,6 +54,7 @@ Container stockList(StockListResult stocklist) {
           onTap: () {
             addStocksData(
                 stocklist.symbol!, stocklist.name!, stocklist.matchscore!);
+            controller.onInit();
           },
           child: const Icon(
             Icons.add,

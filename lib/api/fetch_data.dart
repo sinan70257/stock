@@ -23,7 +23,6 @@ class FetchStockApi {
         print(stockListData);
         return stockListData.map((e) => StockListResult.fromJson(e)).toList();
       } else {
-        // Return an empty list or handle this case according to your requirements
         return [];
       }
     } else {
