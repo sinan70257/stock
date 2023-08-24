@@ -12,10 +12,10 @@ class FetchStockApi {
   Future<List<StockListResult>> searchStock(String keywords) async {
     k++;
     log("apicalled $k");
-    // final response = await http.get(Uri.parse(
-    //     "$baseUrl/query?function=SYMBOL_SEARCH&keywords=$keywords&apikey=$apiKey"));
     final response = await http.get(Uri.parse(
-        "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tencent&apikey=demo"));
+        "$baseUrl/query?function=SYMBOL_SEARCH&keywords=$keywords&apikey=$apiKey"));
+    // final response = await http.get(Uri.parse(
+    //     "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tencent&apikey=demo"));
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
 
@@ -32,12 +32,12 @@ class FetchStockApi {
   }
 
   Future<StockDetails> fetchStockDetails(String symbol) async {
-    // final apiUrl =
-    //     'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=$symbol&apikey=$apiKey';
+    final apiUrl =
+        'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=$symbol&apikey=$apiKey';
 
-    // final response = await http.get(Uri.parse(apiUrl));
-    final response = await http.get(Uri.parse(
-        "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo"));
+    final response = await http.get(Uri.parse(apiUrl));
+    // final response = await http.get(Uri.parse(
+    //     "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo"));
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);

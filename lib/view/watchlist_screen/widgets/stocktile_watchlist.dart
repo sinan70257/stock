@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:marquee/marquee.dart';
 import 'package:stocks/db%20%20functions/db_function.dart';
 import 'package:stocks/view/stock_details_screen.dart/stock_details_screen.dart';

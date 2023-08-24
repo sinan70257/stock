@@ -21,8 +21,9 @@ Container stockDetailsTile(StockDetails stockDetails, stocklist) {
             children: [
               Text(
                 stocklist["symbol"],
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
-                    fontSize: 50,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
