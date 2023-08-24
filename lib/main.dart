@@ -6,16 +6,16 @@ void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await initDatabase();
 
-  runApp(const myApp());
+  runApp(const MyApp());
 }
 
-class myApp extends StatefulWidget {
-  const myApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
   @override
-  State<myApp> createState() => _myAppState();
+  State<MyApp> createState() => _myAppState();
 }
 
-class _myAppState extends State<myApp> {
+class _myAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

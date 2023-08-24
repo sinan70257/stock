@@ -12,32 +12,36 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.black,
-          title: Image.asset(
-            "assets/trade brains.jpg",
-            height: 25,
-          ),
-        ),
+      appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.black,
-        body: Column(
-          children: [
-            customSearchbar(controller.searchStock),
-            Expanded(
-                child: Obx(() => controller.stockList.isNotEmpty
-                    ? ListView.builder(
-                        shrinkWrap: true,
-                        physics: const BouncingScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          return stockList(controller.stockList[index]);
-                        },
-                        itemCount: controller.stockList.length,
-                      )
-                    : const Center(
-                        child: Text("No data found"),
-                      ))),
-          ],
-        ));
+        title: Image.asset(
+          "assets/trade brains.jpg",
+          height: 25,
+        ),
+      ),
+      backgroundColor: Colors.black,
+      body: Column(
+        children: [
+          customSearchbar(controller.searchStock),
+          Expanded(
+            child: Obx(
+              () => controller.stockList.isNotEmpty
+                  ? ListView.builder(
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return stockList(controller.stockList[index]);
+                      },
+                      itemCount: controller.stockList.length,
+                    )
+                  : const Center(
+                      child: Text("No data found"),
+                    ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

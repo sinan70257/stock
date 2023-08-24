@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marquee/marquee.dart';
 import 'package:stocks/db%20%20functions/db_function.dart';
 
 Container stockListTile(stocklist, fetchData) {
@@ -26,13 +27,21 @@ Container stockListTile(stocklist, fetchData) {
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
               ),
-              Text(
-                stocklist['name'],
-                textAlign: TextAlign.left,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                    color: Color.fromARGB(255, 209, 209, 209), fontSize: 15),
+              SizedBox(
+                height: 20,
+                child: Marquee(
+                  text: stocklist['name'],
+                  // textAlign: TextAlign.left,
+                  // maxLines: 1,
+                  // overflow: TextOverflow.ellipsis,
+
+                  style: const TextStyle(
+                      color: Color.fromARGB(255, 209, 209, 209), fontSize: 15),
+                  scrollAxis: Axis.horizontal,
+                  textDirection: TextDirection.ltr,
+                  blankSpace: 50,
+                  // pauseAfterRound: Duration(seconds: 1),
+                ),
               ),
             ],
           ),
