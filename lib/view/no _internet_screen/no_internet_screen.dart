@@ -20,6 +20,8 @@ class NoInternetScreen extends StatelessWidget {
 }
 
 class InternetConnectionScreen extends StatelessWidget {
+  InternetConnectionScreen({super.key});
+
   final InternetConnectionController connectionController =
       Get.put(InternetConnectionController());
 
@@ -29,7 +31,7 @@ class InternetConnectionScreen extends StatelessWidget {
       if (connectionController.isConnected.value) {
         return BottomNavScreen();
       } else {
-        return NoInternetScreen();
+        return const NoInternetScreen();
       }
     });
   }

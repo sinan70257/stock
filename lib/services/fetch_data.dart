@@ -33,7 +33,7 @@ class FetchStockApi {
 
   Future<StockDetails> fetchStockDetails(String symbol) async {
     final apiUrl =
-        'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=$symbol&apikey=$apiKey';
+        '$baseUrl/query?function=GLOBAL_QUOTE&symbol=$symbol&apikey=$apiKey';
 
     final response = await http.get(Uri.parse(apiUrl));
     // final response = await http.get(Uri.parse(

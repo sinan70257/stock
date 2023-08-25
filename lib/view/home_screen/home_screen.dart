@@ -36,7 +36,10 @@ class HomeScreen extends StatelessWidget {
                       itemCount: controller.stockList.length,
                     )
                   : const Center(
-                      child: Text("No data found"),
+                      child: Text(
+                        "No data found",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
             ),
           ),

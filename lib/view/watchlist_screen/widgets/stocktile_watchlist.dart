@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:marquee/marquee.dart';
 import 'package:stocks/db%20%20functions/db_function.dart';
 import 'package:stocks/view/stock_details_screen.dart/stock_details_screen.dart';
 
 Widget stockListTile(stocklist, fetchData, context) {
   return InkWell(
-    onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => StockDetailsScreen(stocklist: stocklist),
-        )),
+    onTap: () => Get.to(StockDetailsScreen(stocklist: stocklist)),
     child: Container(
       height: 65,
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 0.5),
@@ -48,7 +45,6 @@ Widget stockListTile(stocklist, fetchData, context) {
                     scrollAxis: Axis.horizontal,
                     textDirection: TextDirection.ltr,
                     blankSpace: 50,
-                    // pauseAfterRound: Duration(seconds: 1),
                   ),
                 ),
               ],
