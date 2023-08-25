@@ -4,7 +4,7 @@ import 'package:stocks/model/stock/best_match.dart';
 
 class homeComntroller extends GetxController {
   final FetchStockApi stockApi = FetchStockApi();
-  var stockList = <StockListResult>[].obs;
+  RxList<StockListResult> stockList = <StockListResult>[].obs;
 
   void searchStock(String keywords) async {
     final results = await stockApi.searchStock(keywords);
